@@ -3,7 +3,7 @@ spring:
     name: spring-security
   jpa:
     # Provide database platform that is being used
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       # New database is created when application starts and destroyed when application is stopped
       ddl-auto: create-drop
@@ -14,15 +14,13 @@ spring:
         # Format queries
         format_sql: true
   datasource:
-    # URL connection to database (spring-security is database name)
-    url: jdbc:h2:mem:spring-security
-    # H2 sql Driver
-    driver-class-name: org.h2.Driver
+    # URL connection to database (replace <HOST>, <PORT>, and <DB_NAME> with your MySQL details)
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
+    # MySQL driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 12345
-  h2:
-    console:
-      enabled: true
+    password: m@3lich
+
 token:
   signing:
     key: 413F4428472B4B6250655368566D5970337336763979244226452948404D6351
